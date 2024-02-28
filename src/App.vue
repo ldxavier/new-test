@@ -1,15 +1,7 @@
 <template>
-  <div v-show="showFirstDiv">
-    <TheHeader/><br>
-    Name: {{ name }}<br/>
-    Last Name: {{ lastName }}
-    <br/><br/>
 
-  <div v-if="levelAcess == 'cliente'"> Cliente </div>
-  <div v-else-if="levelAcess == 'admin'"> Admin </div>
-  <div v-else> Staff </div>
+  <TheHeader v-show="showFirstDiv"/><br>
 
-  </div> <br/>
 
   <img alt="Vue logo" src="./assets/logo.png">
 
