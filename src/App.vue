@@ -2,7 +2,8 @@
 
   <TheHeader v-show="showHeader"/><br>
 
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img :class="imageCss" alt="Vue logo" src="./assets/logo.png">
+
 
   <div>
     <div
@@ -83,6 +84,7 @@ export default {
           "completed": false
         }
       ],
+      imageCss: 'menor'
 
 
     }
@@ -114,6 +116,17 @@ export default {
   height: 80px;
   border-radius: 50%;
   margin-right: 20px;
+}
+
+.menor{
+  width: 150px;
+  height: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 2px solid #42b983;
+  box-shadow: 0 0 10px #42b983;
+  transition: 0.5s;
 }
 
 </style>
