@@ -15,7 +15,7 @@
 <style>
   .header{
     background-color: rgb(55, 127, 82);
-    padding: 20px;
+    padding: 10px;
     color: #fff;
 
   }
