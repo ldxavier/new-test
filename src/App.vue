@@ -1,36 +1,19 @@
 <template>
-  <div v-show="showFirstDiv">
-    <TheHeader/><br>
-    Name: {{ name }}<br/>
-    Last Name: {{ lastName }}
-    <br/><br/>
-
-  <div v-if="levelAcess == 'cliente'"> Cliente </div>
-  <div v-else-if="levelAcess == 'admin'"> Admin </div>
-  <div v-else> Staff </div>
-
-  </div> <br/>
+  <TheHeader/><br>
 
   <img alt="Vue logo" src="./assets/logo.png">
-
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld.vue'
 import TheHeader from './components/TheHeader.vue'
 
 export default {
   name: 'App',
   components: {
+    HelloWorld,
     TheHeader
-  },
-  data(){
-    return{
-      showFirstDiv: true,
-      name: 'Lucas',
-      lastName: 'Xavier',
-      levelAcess: 'admin'
-
-    }
   }
 }
 </script>
