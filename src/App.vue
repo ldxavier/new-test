@@ -1,6 +1,6 @@
 <template>
 
-  <TheHeader v-show="showFirstDiv"/><br>
+  <TheHeader v-show="showHeader"/><br>
 
 
   <img alt="Vue logo" src="./assets/logo.png">
@@ -17,10 +17,7 @@ export default {
   },
   data(){
     return{
-      showFirstDiv: true,
-      name: 'Lucas',
-      lastName: 'Xavier',
-      levelAcess: 'admin'
+      showHeader: true,
 
     }
   }
