@@ -1,24 +1,30 @@
 <template>
   <header class="header">
-    {{ name }}
+
+    <img class="menor" alt="Vue logo" src="../assets/logo.png">
+
   </header>
 </template>
 
 <script>
   export default{
-    data(){
-      return{
-        name: 'Here is the header component'
-      }
-    }
+
   }
 </script>
 
 <style>
   .header{
-    background-color: rgb(250, 100, 0);
-    padding: 40px;
+    background-color: rgb(55, 127, 82);
+    padding: 20px;
     color: #fff;
 
   }
+  .menor{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #42b983;
+  box-shadow: 0 0 10px #42b983;
+  transition: 0.5s;
+}
 </style>
