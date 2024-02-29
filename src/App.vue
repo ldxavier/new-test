@@ -2,14 +2,18 @@
   <TheHeader v-show="showHeader"/><br>
 
   <div class="divv">
-    <label>Name: </label>
-    <input
-      class="inputs"
-      v-model="name"
-      type="text">
-      <br>
-      {{ name }} <br/>
 
+    <div>
+      <label>Name: </label>
+      <input
+        class="inputs"
+        v-model="name"
+        type="text">
+        <br>
+        {{ name }} <br/>
+    </div>
+
+    <div>
       <label>What is your mother language?</label>
       <select
         style="height: 30px;"
@@ -23,7 +27,9 @@
         </select> <br/>
 
         <span v-if="lang">Your mother language is: {{ lang }}<br/></span><br>
+    </div>
 
+    <div>
       <label>What languages do you speak?</label><br/>
         <input type="checkbox" v-model="check" value="PT">
         PT
@@ -34,7 +40,7 @@
         <input type="checkbox" v-model="check" value="FR">
         FR <br>
         {{ check }}
-
+    </div>
 
   </div>
 
