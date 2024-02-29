@@ -9,8 +9,11 @@
         class="inputs"
         v-model="name"
         type="text">
-        <br>
-        {{ name }} <br/>
+
+        <button @click="clicar()">
+        Enviar
+      </button>
+      <br>
     </div>
 
     <div>
@@ -60,8 +63,12 @@ export default {
       name: '',
       lang: '',
       check: []
-
     }
+  },
+  methods: {
+    clicar(){
+      alert('Hello, ' + this.name);
+    },
   }
 }
 </script>
