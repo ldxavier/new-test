@@ -23,12 +23,13 @@ import { ref } from "vue";
 <style>
   .header{
     background-color: rgb(208, 92, 15);
-    padding: 16px;
+    padding: 10px;
     color: #fff;
     left: 0;
     position: fixed;
     width: 100%;
     top: 0;
+
   }
 
   .imgg{
