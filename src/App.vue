@@ -143,7 +143,7 @@ export default {
   border-end-end-radius: 10px;
   border: none;
   width: 60px;
-  background-color: #2d2c2c;
+  background-color: #282727;
 }
 
 .selects{
