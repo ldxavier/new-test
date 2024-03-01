@@ -108,7 +108,7 @@ export default {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 120px;
   border-radius: 50px;
 }
 .inputs{

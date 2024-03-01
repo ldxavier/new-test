@@ -24,8 +24,12 @@
 <style>
   .header{
     background-color: rgb(93, 83, 112);
-    padding: 10px;
     color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+
   }
 
   .imgg{
