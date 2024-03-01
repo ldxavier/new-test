@@ -127,20 +127,23 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 3px;
-  border-radius: 10px;
+  border-end-start-radius: 10px;
+  border-start-start-radius: 10px;
   border: none;
-  width: 300px;
+  width: 280px;
   color: #000;
 }
 
 .buttons{
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 0px;
   padding: 3px;
-  border-radius: 10px;
+  border-start-end-radius: 10px;
+  border-end-end-radius: 10px;
   border: none;
-  width: 70px;
-  color: #000;
+  width: 60px;
+  background-color: #2d2c2c;
 }
 
 .selects{
