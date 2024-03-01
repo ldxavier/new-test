@@ -2,16 +2,18 @@
   <TheHeader v-show="showHeader"/><br>
 
   <div class="divv">
-
     <div>
       <label>Name: </label>
       <input
         class="inputs"
         v-model="name"
-        type="text">
+        type="text"
+        placeholder="Type your name"
+        @keyup.enter="clicar"
+        >
 
-        <button @click="clicar()">
-        Enviar
+        <button @click="clicar">
+        Alert
       </button>
       <br>
     </div>
@@ -36,13 +38,25 @@
       <label>What languages do you speak?</label><br/>
         <input type="checkbox" v-model="check" value="PT">
         PT
+        <input type="checkbox" v-model="check" value="PL">
+        PL
+        <input type="checkbox" v-model="check" value="DE">
+        DE
         <input type="checkbox" v-model="check" value="ES">
         ES <br/>
         <input type="checkbox" v-model="check" value="EN">
         EN
+        <input type="checkbox" v-model="check" value="IT">
+        IT
+        <input type="checkbox" v-model="check" value="RU">
+        RU
         <input type="checkbox" v-model="check" value="FR">
         FR <br>
-        {{ check }}
+
+        <div v-if="check.length != 0">
+          {{ check }}
+          <button @click="clear">Clear</button>
+        </div>
     </div>
 
   </div>
@@ -68,7 +82,11 @@ export default {
   methods: {
     clicar(){
       alert('Hello, ' + this.name);
+      this.name = ''
     },
+    clear(){
+      this.check = []
+    }
   }
 }
 </script>
