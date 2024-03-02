@@ -1,42 +1,46 @@
 <template>
-  <TheHeader v-show="showHeader"/><br>
+  <div>
+    <TheHeader v-show="showHeader"/><br>
 
-  <h2>Open List</h2>
-  <div
-    v-for="lis in uncompleted"
-    :key="lis.id"
-    class="div1"
-  >
+    <div class="xxx">
+      <!-- Lista de Tarefas Não Concluídas -->
+      <div class="list">
+        <h2>Open List</h2>
+        <div
+          v-for="lis in uncompleted"
+          :key="lis.id"
+          class="div1"
+        >
+          {{ lis.title }}
+        </div>
+      </div>
 
-    {{lis.title}}
+      <!-- Lista de Tarefas Concluídas -->
+      <div class="list">
+        <h2>Completed List</h2>
+        <div
+          v-for="lis in completed"
+          :key="lis.id"
+          class="div1"
+        >
+          {{ lis.title }}
+        </div>
+      </div>
 
+      <!-- Lista Completa -->
+      <div class="list">
+        <h2>Full List</h2>
+        <div
+          v-for="list in list"
+          :key="list.id"
+          class="div1"
+        >
+          <input v-model="list.completed" type="checkbox">
+          {{ list.title }}
+        </div>
+      </div>
+    </div>
   </div>
-  <br/>
-
-  <h2>Completed List</h2>
-  <div
-    v-for="lis in completed"
-    :key="lis.id"
-    class="div1"
-  >
-
-    {{lis.title}}
-  </div>
-
-  <h2>Full List</h2>
-  <div
-    v-for="list in list"
-    :key="list.id"
-    class="div1"
-  >
-  <input
-    v-model="list.completed"
-    type="checkbox"
-  >
-  {{list.title}}
-
-  </div>
-
 </template>
 
 <script>
@@ -93,12 +97,6 @@ export default {
           "title": "illo expedita consequatur quia in",
           "completed": false
         },
-        {
-          "userId": 1,
-          "id": 8,
-          "title": "quo adipisci enim quam ut ab",
-          "completed": true
-        },
       ]
     }
   },
@@ -106,13 +104,11 @@ export default {
     uncompleted(){
       return this.list.filter(lis => !lis.completed);
     },
-
     completed(){
       return this.list.filter(lis => lis.completed);
     }
   }
 }
-
 </script>
 
 <style>
@@ -125,18 +121,23 @@ export default {
   margin-top: 100px;
 }
 
-.div1{
-  margin-top: 15px;
-  padding: 10px;
+.xxx {
+  display: flex; /* Exibe os elementos lado a lado */
+  justify-content: space-between; /* Espaçamento entre os elementos */
+}
+
+.list {
+  margin-right: 20px; /* Espaçamento entre as listas */
+}
+
+.div1 {
+  padding: 15px;
   border: 1px solid #000;
   width: 30%;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   background-color: #4d4b4b;
   color: #fff;
   font-size: 20px;
   border-radius: 13px;
-
 }
 </style>
