@@ -38,6 +38,12 @@
           <input v-model="list.completed" type="checkbox">
           {{ list.title }}
         </div>
+        <button
+          @click="limpar"
+          :key="list.completed"
+          class="but"
+        >
+        Clear</button>
       </div>
     </div>
   </div>
@@ -106,6 +112,12 @@ export default {
     },
     completed(){
       return this.list.filter(lis => lis.completed);
+    },
+  },
+  methods: {
+    limpar(){
+      // tornar todos os completed false
+      this.list.forEach(lis => lis.completed = false)
     }
   }
 }
@@ -133,11 +145,21 @@ export default {
 .div1 {
   padding: 15px;
   border: 1px solid #000;
-  width: 30%;
   text-align: center;
+  width: auto;
   background-color: #4d4b4b;
   color: #fff;
   font-size: 20px;
   border-radius: 13px;
+}
+
+.but {
+  padding: 5px;
+  border: 1px solid #000;
+  margin-top: 10px;
+  background-color: #666464;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 6px;                                                                                     
 }
 </style>
