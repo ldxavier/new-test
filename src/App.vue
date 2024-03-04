@@ -1,23 +1,24 @@
 <template>
-
   <TheHeader v-show="showHeader"/><br>
-
-
-  <img alt="Vue logo" src="./assets/logo.png">
+  <BaseAlert :variant="variant" :text="text"/>
 
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
+import BaseAlert from './components/BaseAlert.vue'
 
 export default {
   name: 'App',
   components: {
-    TheHeader
+    TheHeader,
+    BaseAlert
   },
   data(){
     return{
-      showHeader: true,
+      showHeader: false,
+      variant: 'danger',
+      text: 'Formulário com erro, não enviado'
 
     }
   }
