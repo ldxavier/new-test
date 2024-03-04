@@ -10,7 +10,7 @@
       >
         {{lis.title}}
       </div>
-      <h4 style="margin-top: 40%;" v-if="completed.length == 0">Empty list</h4>
+      <h4 style="margin-top: 60px" v-if="completed.length == 0">Empty list</h4>
     </div>
 
     <div class="container">
@@ -22,7 +22,7 @@
         {{lis.title}}
 
       </div>
-      <h4 style="margin-top: 40%;" v-if="unCompleted.length == 0">Empty list</h4>
+      <h4 style="margin-top: 60px" v-if="unCompleted.length == 0">Empty list</h4>
     </div>
 
     <div class="container">
