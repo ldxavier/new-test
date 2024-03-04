@@ -2,8 +2,7 @@
   <div>
     <TheHeader v-show="showHeader"/><br>
 
-    <div class="xxx">
-      <!-- Lista de Tarefas Não Concluídas -->
+    <div class="divGeral">
       <div class="list">
         <h2>Open List</h2>
         <div
@@ -15,7 +14,6 @@
         </div>
       </div>
 
-      <!-- Lista de Tarefas Concluídas -->
       <div class="list">
         <h2>Completed List</h2>
         <div
@@ -27,7 +25,6 @@
         </div>
       </div>
 
-      <!-- Lista Completa -->
       <div class="list">
         <h2>Full List</h2>
         <div
@@ -133,7 +130,7 @@ export default {
   margin-top: 100px;
 }
 
-.xxx {
+.divGeral {
   display: flex; /* Exibe os elementos lado a lado */
   justify-content: space-between; /* Espaçamento entre os elementos */
 }
@@ -160,6 +157,6 @@ export default {
   background-color: #666464;
   color: #fff;
   font-size: 15px;
-  border-radius: 6px;                                                                                     
+  border-radius: 6px;
 }
 </style>
