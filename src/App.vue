@@ -1,6 +1,17 @@
 <template>
   <TheHeader v-show="showHeader"/><br>
-  <BaseAlert :variant="variant" :text="text"/>
+  <BaseAlert
+    v-if="showButton"
+    :variant="success"
+    :text="textS"
+    @close="Clique"
+    />
+
+    <button
+      class="buttonC"
+      v-if="showButton == false"
+      @click="showButton = true"
+    >Show</button>
 
 </template>
 
@@ -17,15 +28,32 @@ export default {
   },
   setup() {
     const showHeader = ref(false);
-    const variant = ref('danger');
-    const text = ref('Failed alert');
+    const showButton = ref(true);
+
+    const def = ref('');
+    const text = ref('This is the default alert');
+    const danger = ref('danger');
+    const textD = ref('This alert has not been submitted');
+    const success = ref('success');
+    const textS = ref('This alert was submitted successfully');
+
+    const Clique = () => {
+      showButton.value = false;
+      console.log('Clique no botão de fechar');
+    }
 
 
     return {
       showHeader,
       BaseAlert,
-      variant,
-      text
+      def,
+      danger,
+      textD,
+      textS,
+      success,
+      text,
+      Clique,
+      showButton
     }
   }
 }
@@ -39,5 +67,26 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.buttonC{
+  background-color: gray;
+  color: white;
+  border: oldlace;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.buttonC:hover {
+  background-color: #3c3d3c;
+  color: white;
+}
+
+.buttonC:active {
+  background-color: #3c3d3c;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 </style>

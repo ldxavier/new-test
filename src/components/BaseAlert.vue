@@ -1,6 +1,12 @@
 <template>
   <div :class="baseClass">
     {{ text }}
+
+    <button
+      @click="$emit('close')"
+    >
+      X
+    </button>
   </div>
 </template>
 
@@ -20,8 +26,10 @@ export default {
         props.variant ? `alert-${props.variant}` : ''
       ];
     });
+
     return {
-      baseClass
+      baseClass,
+
     }
   }
 }
@@ -33,7 +41,9 @@ export default {
   background-color: #7a7a7a;
   color: white;
   border-radius: 15px;
-  width: 50%;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .alert-success {
