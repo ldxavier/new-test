@@ -2,6 +2,11 @@
   <div :class="baseClass">
     {{ text }}
 
+    <button
+      @click="onClick()"
+    >
+      X
+    </button>
   </div>
 </template>
 
@@ -16,6 +21,12 @@ export default {
 
       ]
     }
+  },
+  methods: {
+    onClick() {
+      this.$emit('close');
+      console.log('clicou');
+    }
   }
 }
 
@@ -28,6 +39,8 @@ export default {
     border-radius: 6px;
     padding: 5px;
     width: 200px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .alert-success {
@@ -37,5 +50,6 @@ export default {
   .alert-danger {
     background-color: #ff4d4d;
   }
+
 
 </style>

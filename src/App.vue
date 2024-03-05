@@ -1,6 +1,11 @@
 <template>
   <TheHeader v-show="showHeader"/><br>
-  <BaseAlert :variant="variant" :text="text"/>
+  <BaseAlert
+    v-if="showBase"
+    :variant="def"
+    :text="defT"
+    @close="onClose"
+    />
 
 </template>
 
@@ -17,9 +22,20 @@ export default {
   data(){
     return{
       showHeader: false,
-      variant: 'danger',
-      text: 'Formulário com erro, não enviado'
+      danger: 'danger',
+      textD: 'Formulário com erro, não enviado',
+      success: 'success',
+      textS: 'Formulário enviado com sucesso',
+      def: '',
+      defT: 'Preencha o formulário',
+      showBase: true
 
+    }
+  },
+  methods: {
+    onClose(){
+      this.showBase = false;
+      console.log('clicou');
     }
   }
 }
