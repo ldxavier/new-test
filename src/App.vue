@@ -1,11 +1,12 @@
 <template>
-  <TheHeader v-show="showHeader"/><br>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <HeaderNav/>
+  <ListTask/>
 
 </template>
 
-<script>
-import TheHeader from './components/TheHeader.vue'
+<script setup>
+  import HeaderNav from './components/HeaderNav.vue'
+  import ListTask from './components/ListTask.vue'
 
 export default {
   name: 'App',
@@ -28,6 +29,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.task {
+  margin-top: 100px
 }
 </style>
