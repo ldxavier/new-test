@@ -8,7 +8,7 @@
       >
       <button @click="AddTask">Add Task</button><br/>
 
-      <div>
+      <div v-if="ListTask.length != 0">
         <h2>ALL ITEMS</h2>
         <span
           v-for="(list, index) in ListTask"
