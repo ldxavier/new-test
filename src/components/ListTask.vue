@@ -27,11 +27,10 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const txtTask = ref("");
 const ListTask = ref([]);
-const CheckTasked = ref([]);
 
 const AddTask = () => {
   if (txtTask.value.trim() === "") {

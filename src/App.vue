@@ -8,18 +8,6 @@
   import HeaderNav from './components/HeaderNav.vue'
   import ListTask from './components/ListTask.vue'
 
-export default {
-  name: 'App',
-  components: {
-    TheHeader
-  },
-  data(){
-    return{
-      showHeader: true,
-
-    }
-  }
-}
 </script>
 
 <style>
