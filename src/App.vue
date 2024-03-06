@@ -1,31 +1,21 @@
 <template>
   <TheHeader v-show="showHeader"/><br>
-  <BaseAlert :variant="variant" :text="text"/>
+  <img alt="Vue logo" src="./assets/logo.png">
 
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
-import { ref } from 'vue'
-import BaseAlert from './components/BaseAlert.vue'
 
 export default {
   name: 'App',
   components: {
-    TheHeader,
-    BaseAlert
+    TheHeader
   },
-  setup() {
-    const showHeader = ref(false);
-    const variant = ref('danger');
-    const text = ref('Failed alert');
+  data(){
+    return{
+      showHeader: true,
 
-
-    return {
-      showHeader,
-      BaseAlert,
-      variant,
-      text
     }
   }
 }
