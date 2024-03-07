@@ -16,7 +16,7 @@
 
 <style scoped>
   .header{
-    background-color: rgb(250, 100, 0);
+    background-color: rgb(221, 114, 43);
     color: #fff;
     display: flex;
     justify-content: center;

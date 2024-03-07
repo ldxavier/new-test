@@ -44,7 +44,7 @@ const MovieList = ref([
   {title: 'The Godfather: Part II', year: 1974, gener: 'comedy'},
   {title: 'The Dark Knight', year: 2008, gener: 'action'},
   {title: 'The Science of Sleep', year: 2006, gener: 'drama'},
-  
+
 ]);
 
 const favMovies = ref([])
