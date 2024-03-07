@@ -12,29 +12,55 @@
 
     <div v-if="ListTask.length != 0">
       <h2>ALL ITEMS</h2>
-      <span
+      <div
         v-for="(list, index) in ListTask"
         :key="index"
-        >
-      <input
-        v-if="list.length != 0"
-        type="checkbox"
-        v-model="CheckTask">
-          {{ list }}  - <button @click="delTask(index)">
-          X
-         </button> <br/>
-      </span>
+      >
+
+        <input
+          v-if="list.length != 0"
+          type="checkbox"
+          v-model="checked[index]">
+            {{ list }}  - <button @click="delTask(index)">
+            X
+          </button> <br/>
+
+      </div>
+    </div>
+
+    <div v-if="completedTask.length != 0">
+      <h2>Completed Tasks</h2>
+      <div
+        v-for="checkTrue in completedTask"
+        :key="checkTrue"
+      >
+        <li>{{ checkTrue }}</li>
+      </div>
+    </div>
+
+    <div v-if="unCompletededTask.length != 0">
+      <h2>UnCompleted Tasks</h2>
+      <div
+        v-for="checkFalse in unCompletededTask"
+        :key="checkFalse"
+      >
+        <li>{{ checkFalse }}</li>
+      </div>
     </div>
 
   </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
+//var declaration
 const txtTask = ref("");
 const ListTask = ref([]);
+const checked = ref([]);
 
+
+//methods
 const AddTask = () => {
   // if (txtTask.value.trim() === "") {
   //   alert("Please enter a task.");
@@ -53,7 +79,22 @@ const AddTask = () => {
 
 const delTask = (index) => {
   ListTask.value.splice(index, 1);
+  checked.value.splice(index, 1);
 };
+
+
+//computed
+const completedTask = computed(() => {
+  return ListTask.value.filter((list, index) => {
+    return checked.value[index];
+  });
+});
+
+const unCompletededTask = computed(() => {
+  return ListTask.value.filter((list,index) => {
+    return !checked.value[index];
+  } )
+});
 
 </script>
 
