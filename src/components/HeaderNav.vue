@@ -14,10 +14,12 @@
 
 <style>
   .header {
-    background-color: #87f8eb;
+    background-color: #447670;
     padding: 30px;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
     position: fixed;
     width: 100%;
     height: 30px;
