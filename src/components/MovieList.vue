@@ -1,31 +1,39 @@
 <template>
-  <div>
-    <h1>Movies List</h1>
-    <ul
-      v-for="movie in MovieList"
-      :key="movie.id"
-    >
-
-      <li>
-        <button
-          @click="favoriteMovies(movie)"
-        >
-          Add to favorites
-        </button>
-        {{ movie.gener }}: {{ movie.title }} - {{ movie.year }}
-
-      </li>
-    </ul>
+  <div class="general">
 
     <div>
-      <h1>Favorite Movies</h1>
+      <h1 style="margin-left: -35%;">Movies List</h1>
+      <ul class="movieList"
+        v-for="movie in MovieList"
+        :key="movie.id"
+      >
+        <li>
+          <h2>Title</h2>
+          {{ movie.title }}<br/>
+          {{ movie.body }}<br/>
+          <button
+            @click="favoriteMovies(movie)"
+          >
+            Add to favorites
+          </button>
+
+        </li>
+      </ul>
+    </div>
+
+    <div class="favList">
+      <h1 style="margin-left: -500px;">Favorite Movies</h1>
       <ul
+        class="favMovies"
         v-for="(fav, index) in favMovies"
         :key="index"
       >
         <li>
-            {{ fav.gener }}: {{ fav.title }} - {{ fav.year }}
-            <button @click="removeFav(index)">
+          <h3>Title</h3><br/>
+          {{ fav.title }}<br/>
+          {{ fav.body }}<br/>
+
+              <button @click="removeFav(index)">
               X
             </button>
         </li>
@@ -37,13 +45,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import axios from 'axios'
 
 const MovieList = ref([
-  {title: 'The Shawshank Redemption', year: 1994, gener: 'drama'},
-  {title: 'The Godfather', year: 1972, gener: 'sci-fi'},
-  {title: 'The Godfather: Part II', year: 1974, gener: 'comedy'},
-  {title: 'The Dark Knight', year: 2008, gener: 'action'},
-  {title: 'The Science of Sleep', year: 2006, gener: 'drama'},
 
 ]);
 
@@ -60,16 +64,58 @@ const favoriteMovies = (movie) => {
 
 }
 
+const fetchMovies = () => {
+       axios
+         .get("https://jsonplaceholder.typicode.com/posts")
+         .then((res) => {
+           MovieList.value = res.data;
+         })
+         .catch((error) => {
+           console.log(error);
+         });
+     }
+fetchMovies();
+
 const removeFav = (movie) => {
 
   favMovies.value.splice(movie, 1);
 }
-
 </script>
 
 <style scoped>
-li{
-  list-style-type: none
+.general {
+  display: flex;
+  justify-content: space-bettween;
 }
 
+
+ li {
+  list-style-type: none;
+}
+
+.movieList {
+  border: 1px solid #000;
+  border-radius: 13px;
+  background-color: #4d4b4b;
+  color: white;
+  width: 40%;
+  padding: 10px;
+  margin-left: 10%;
+}
+
+.favMovies {
+  border: 1px solid #000;
+  border-radius: 13px;
+  background-color: #fbd12c;
+  color: white;
+  width: 400px;
+  padding: 10px;
+  margin-left: -20%;
+}
+
+button {
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 3px;
+}
 </style>
