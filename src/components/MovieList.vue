@@ -60,11 +60,11 @@ const favoriteMovies = (movie) => {
 
 }
 
-
 const removeFav = (movie) => {
 
   favMovies.value.splice(movie, 1);
 }
+
 </script>
 
 <style scoped>
