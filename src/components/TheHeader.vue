@@ -1,17 +1,19 @@
 <template>
   <header class="header">
-    {{ name }}
+    {{ props.name }}
   </header>
 </template>
 
-<script>
-  export default{
-    data(){
-      return{
-        name: 'Here is the header component'
-      }
-    }
+<script setup>
+  import { defineProps } from 'vue';
+
+const props = defineProps({
+  name: {
+    type: String,
+    default: 'Vue 3'
   }
+});
+
 </script>
 
 <style>
