@@ -1,10 +1,9 @@
 <template>
   <div class="general">
-
-    <div>
-      <h1 style="margin-left: -35%;">Movies List</h1>
-      <ul class="movieList" v-for="movie in MovieList" :key="movie.id">
-        <li>
+    <div class="movie-section">
+      <h1>Movies List</h1>
+      <ul class="movieList">
+        <li v-for="movie in MovieList" :key="movie.id">
           <h2>Title</h2>
           {{ movie.title }}<br/>
           {{ movie.body }}<br/>
@@ -15,10 +14,10 @@
       </ul>
     </div>
 
-    <div class="favList">
-      <h1 style="margin-left: -500px;">Favorite Movies</h1>
-      <ul class="favMovies" v-for="(fav, index) in favMovies" :key="index">
-        <li>
+    <div class="fav-section" v-if="favMovies.length > 0">
+      <h1>Favorite Movies</h1>
+      <ul class="favMovies">
+        <li v-for="(fav, index) in favMovies" :key="index">
           <h3>Title</h3><br/>
           {{ fav.title }}<br/>
           {{ fav.body }}<br/>
@@ -40,7 +39,6 @@ const favoriteMovies = (movie) => {
   if (favMovies.value.includes(movie)) {
     return alert('This movie is already in your favorites');
   }
-  console.log('favoriteMovies', movie);
   favMovies.value.push(movie);
 }
 
@@ -56,8 +54,8 @@ const fetchMovies = () => {
 }
 fetchMovies();
 
-const removeFav = (movie) => {
-  favMovies.value.splice(movie, 1);
+const removeFav = (index) => {
+  favMovies.value.splice(index, 1);
 }
 </script>
 
@@ -65,35 +63,48 @@ const removeFav = (movie) => {
 .general {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+}
+
+.movie-section, .fav-section {
+  width: 45%;
+}
+
+.movie-section {
+  margin-right: 5%;
+}
+
+.movieList, .favMovies {
+  border: 1px solid #000;
+  border-radius: 13px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.movieList {
+  background-color: #4d4b4b;
+  color: white;
+}
+
+.favMovies {
+  background-color: #fbd12c;
+  color: white;
+}
+
+h1 {
+  text-align: center;
 }
 
 li {
   list-style: none;
-}
-
-.movieList {
-  border: 1px solid #000;
-  border-radius: 13px;
-  background-color: #4d4b4b;
-  color: white;
-  width: 40%;
-  padding: 10px;
-  margin-left: 10%;
-}
-
-.favMovies {
-  border: 1px solid #000;
-  border-radius: 13px;
-  background-color: #fbd12c;
-  color: white;
-  width: 50%;
-  padding: 10px;
-  margin-left: -20%;
+  margin-bottom: 10px;
+  padding: 10px; /* Adicionado padding entre os cards */
 }
 
 button {
   border-radius: 10px;
   margin-top: 10px;
-  padding: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 </style>
